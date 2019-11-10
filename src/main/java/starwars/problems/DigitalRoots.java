@@ -6,17 +6,13 @@ public class DigitalRoots {
         if (n < 0) {
             return -1 * digital_root(-n);
         }
-        else if (n < 10) {
-            return n;
-        }
         else {
-            int i = 0;
-            do {
-                i += n % 10;
-                n /= 10;
-            } while (n > 0);
+            int rv = n;
+            while (rv > 9) {
+                rv = rv / 10 + rv % 10;
+            }
 
-            return digital_root(i);
+            return rv;
         }
     }
 }
